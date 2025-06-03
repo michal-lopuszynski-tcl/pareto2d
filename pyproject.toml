@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pareto2d"
+authors = [
+  { name="lopusz" },
+]
+description = "Toolkit for analysis Pareto fronts in 2D"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dynamic = ["version", "dependencies"]
+[project.urls]
+homepage = "https://github.com/michal-lopuszynski-tcl/pareto2d"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["tests"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
