@@ -1,5 +1,9 @@
-pareto2d.egg-info
 dist
+examples/.ipynb_checkpoints
+examples/README.ipynb
+examples/README.md
+examples/README_files
 make.black.log
 make.flake8.log
 make.mypy.log
+pareto2d.egg-info
