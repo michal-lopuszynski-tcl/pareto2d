@@ -39,50 +39,6 @@ def setup_logging():
 
 setup_logging()
 
-
-# %%
-# | echo: false
-
-
-class NoGlobals:
-    def __init__(self, logger=None):
-        self.logger = logger
-
-    @staticmethod
-    def _get_global_ids():
-        return [v for v in globals().keys() if not v.startswith("_")]
-
-    def _keep_only_ids(self, ids):
-        ids_all = list(globals().keys())
-        for id_cur in ids_all:
-            if not id_cur.startswith("_") and id_cur not in ids:
-                if self.logger is not None:
-                    self.logger.info("Deleting " + id_cur)
-                del globals()[id_cur]
-
-    def __enter__(self):
-        self.globals = self._get_global_ids()
-
-    def __exit__(self, type, value, traceback):
-        self._keep_only_ids(self.globals)
-
-
-# %%
-# | echo: false
-
-
-class Timing:
-    def __init__(self, block_name):
-        self.block_name = block_name
-
-    def __enter__(self):
-        self.start = time.perf_counter()
-
-    def __exit__(self, type, value, traceback):
-        duration = time.perf_counter() - self.start
-        logger.info(f"{self.block_name} took {duration:.2f} sec.")
-
-
 # %%
 # | echo: false
 
