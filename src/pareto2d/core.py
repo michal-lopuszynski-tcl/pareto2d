@@ -76,7 +76,7 @@ def _get_sorted_pf_max_max(o1, o2):
     return o1_pf[ii], o2_pf[ii]
 
 
-def get_pf(o1, o2, mode):
+def get_sorted_pf(o1, o2, mode):
     if mode == Mode.O1_MAX_O2_MAX:
         return _get_sorted_pf_max_max(o1, o2)
     elif mode == Mode.O1_MAX_O2_MIN:
@@ -117,7 +117,7 @@ def _get_pf_o2_max_max(o1, o1_pf, o2_pf):
     )
 
 
-def get_pf_o2(o1, o1_pf_sorted, o2_pf_sorted, mode):
+def interpolate_pf_o2(o1, o1_pf_sorted, o2_pf_sorted, mode):
     if mode == Mode.O1_MAX_O2_MAX:
         return _get_pf_o2_max_max(o1, o1_pf_sorted, o2_pf_sorted)
     elif mode == Mode.O1_MAX_O2_MIN:
@@ -130,12 +130,12 @@ def get_pf_o2(o1, o1_pf_sorted, o2_pf_sorted, mode):
         raise ValueError(f"Unknown {mode=}")
 
 
-def get_pf_o1(o2, o1_pf_sorted, o2_pf_sorted, mode):
+def interpolate_pf_o1(o2, o1_pf_sorted, o2_pf_sorted, mode):
     if mode == Mode.O1_MAX_O2_MAX or mode == Mode.O1_MIN_O2_MIN:
-        return get_pf_o2(o2, o2_pf_sorted, o1_pf_sorted, mode=mode)
+        return interpolate_pf_o2(o2, o2_pf_sorted, o1_pf_sorted, mode=mode)
     elif mode == Mode.O1_MAX_O2_MIN:
-        return get_pf_o2(o2, o2_pf_sorted, o1_pf_sorted, mode=Mode.O1_MIN_O2_MAX)
+        return interpolate_pf_o2(o2, o2_pf_sorted, o1_pf_sorted, mode=Mode.O1_MIN_O2_MAX)
     elif mode == Mode.O1_MIN_O2_MAX:
-        return get_pf_o2(o2, o2_pf_sorted, o1_pf_sorted, mode=Mode.O1_MAX_O2_MIN)
+        return interpolate_pf_o2(o2, o2_pf_sorted, o1_pf_sorted, mode=Mode.O1_MAX_O2_MIN)
     else:
         raise ValueError(f"Unknown {mode=}")
