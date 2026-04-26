@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.17.2
+#       jupytext_version: 1.19.1
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -216,3 +216,19 @@ for i in range(0, 5):
     ax.scatter(x=o1pf_cur, y=o2pf_cur, color=cm(i), label=f"Pareto front {i+1}")
 
 ax.legend()
+
+# %% [markdown]
+# ## Version info
+
+# %%
+# | echo: false
+import sys
+import matplotlib
+
+# %% [markdown]
+# Examples prepared using the following software versions:
+#
+# - `python` version: `{python} f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"`
+# - `numpy` version: `{python} np.__version__`
+# - `matplotlib` version: `{python} matplotlib.__version__`
+# - `pareto2d` version: `{python} pareto2d.__version__`

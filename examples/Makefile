@@ -5,7 +5,8 @@ README.md: README.ipynb
 	quarto render README.ipynb --to gfm
 
 README.ipynb: README.py
-	jupytext --execute --to ipynb README.py
+	jupytext --to ipynb README.py
+	quarto render README.ipynb --execute
 
 clean:
 	rm -rf README_files README.ipynb README.md
