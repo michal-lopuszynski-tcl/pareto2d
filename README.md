@@ -54,7 +54,7 @@ ax.set_xlim([-0.1, 1.1])
 ax.set_ylim([-0.1, 1.1])
 ```
 
-![](README_files/figure-commonmark/cell-8-output-1.png)
+![](README_files/figure-commonmark/cell-6-output-1.png)
 
 ## Example 2 - interpolate Pareto front
 
@@ -82,7 +82,7 @@ ax.set_xlim([-0.1, 1.1])
 ax.set_ylim([-0.1, 1.1])
 ```
 
-![](README_files/figure-commonmark/cell-9-output-1.png)
+![](README_files/figure-commonmark/cell-7-output-1.png)
 
 ``` python
 # Interpolate first objective from Pareto front on the basis of second objective grid `o2dense`
@@ -104,7 +104,7 @@ ax.set_xlim([-0.1, 1.1])
 ax.set_ylim([-0.1, 1.1])
 ```
 
-![](README_files/figure-commonmark/cell-10-output-1.png)
+![](README_files/figure-commonmark/cell-8-output-1.png)
 
 ## Example 3 - find successive Pareto fronts
 
@@ -136,4 +136,13 @@ for i in range(0, 5):
 ax.legend()
 ```
 
-![](README_files/figure-commonmark/cell-11-output-1.png)
+![](README_files/figure-commonmark/cell-9-output-1.png)
+
+## Version info
+
+Examples prepared using the following software versions:
+
+- `python` version: 3.12.11
+- `numpy` version: 2.4.4
+- `matplotlib` version: 3.10.9
+- `pareto2d` version: 0.1.1
