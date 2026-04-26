@@ -1,5 +1,6 @@
 import enum
 import logging
+
 import numpy as np
 
 logger = logging.getLogger(__name__)
@@ -134,8 +135,12 @@ def interpolate_pf_o1(o2, o1_pf_sorted, o2_pf_sorted, mode):
     if mode == Mode.O1_MAX_O2_MAX or mode == Mode.O1_MIN_O2_MIN:
         return interpolate_pf_o2(o2, o2_pf_sorted, o1_pf_sorted, mode=mode)
     elif mode == Mode.O1_MAX_O2_MIN:
-        return interpolate_pf_o2(o2, o2_pf_sorted, o1_pf_sorted, mode=Mode.O1_MIN_O2_MAX)
+        return interpolate_pf_o2(
+            o2, o2_pf_sorted, o1_pf_sorted, mode=Mode.O1_MIN_O2_MAX
+        )
     elif mode == Mode.O1_MIN_O2_MAX:
-        return interpolate_pf_o2(o2, o2_pf_sorted, o1_pf_sorted, mode=Mode.O1_MAX_O2_MIN)
+        return interpolate_pf_o2(
+            o2, o2_pf_sorted, o1_pf_sorted, mode=Mode.O1_MAX_O2_MIN
+        )
     else:
         raise ValueError(f"Unknown {mode=}")
